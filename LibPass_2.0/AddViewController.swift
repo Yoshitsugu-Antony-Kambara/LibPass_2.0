@@ -46,7 +46,7 @@ class AddViewController: UIViewController {
                 //json["title"].string
                 
                 
-                print(json["count"].int as Any)
+                print(json[""].int as Any)
             })
         }
         
