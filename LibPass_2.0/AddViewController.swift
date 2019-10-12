@@ -26,6 +26,11 @@ class AddViewController: UIViewController {
         //getArticles()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        print("chinko")
+    }
+    
+    
     func getArticles() {
         
         Alamofire.request("ここだよー")
