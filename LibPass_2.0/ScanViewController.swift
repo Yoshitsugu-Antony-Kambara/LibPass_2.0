@@ -96,7 +96,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             // 取得したデータの処理を行う
             let alert: UIAlertController = UIAlertController(title: "取得できました", message: metadata.stringValue, preferredStyle: UIAlertController.Style.alert)
             let cancel: UIAlertAction = UIAlertAction(title: "確認", style: UIAlertAction.Style.default, handler:{(action:UIAlertAction!) -> Void in
-                self.present(AddViewController(), animated: true, completion: nil)
+                self.show(AddViewController(), sender: nil)
             })
             alert.addAction(cancel)
             present(alert, animated: true, completion: nil)

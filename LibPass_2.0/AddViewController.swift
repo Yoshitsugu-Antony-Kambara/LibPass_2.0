@@ -21,13 +21,14 @@ class AddViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("fuuuuuuuuuuuuuuuuuuuuuuuuuuck")
         // Do any additional setup after loading the view.
         //getArticles()
     }
     
     func getArticles() {
         
-        Alamofire.request("https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&isbn=\(ISBN)&applicationId=1091598145852090380")
+        Alamofire.request("ここだよー")
         .responseJSON { (response) in
             print(response.result.value as Any)
             guard let object = response.result.value else {
