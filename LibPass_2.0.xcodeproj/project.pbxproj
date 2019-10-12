@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1419580F2352786100C50F8E /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1419580E2352786100C50F8E /* testViewController.swift */; };
 		14209E0C23522FE200364EA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14209E0B23522FE200364EA7 /* AppDelegate.swift */; };
 		14209E0E23522FE200364EA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14209E0D23522FE200364EA7 /* ViewController.swift */; };
 		14209E1123522FE200364EA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14209E0F23522FE200364EA7 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1419580E2352786100C50F8E /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		14209E0823522FE200364EA7 /* LibPass_2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibPass_2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14209E0B23522FE200364EA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14209E0D23522FE200364EA7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				14209E39235230D400364EA7 /* ScanViewController.swift */,
 				14209E3B235230DB00364EA7 /* AddViewController.swift */,
 				14209E0F23522FE200364EA7 /* Main.storyboard */,
+				1419580E2352786100C50F8E /* testViewController.swift */,
 				14209E1223522FE700364EA7 /* Assets.xcassets */,
 				14209E1423522FE700364EA7 /* LaunchScreen.storyboard */,
 				14209E1723522FE700364EA7 /* Info.plist */,
@@ -406,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1419580F2352786100C50F8E /* testViewController.swift in Sources */,
 				14209E0E23522FE200364EA7 /* ViewController.swift in Sources */,
 				14209E3F235230ED00364EA7 /* CustomTableViewCell.swift in Sources */,
 				14209E0C23522FE200364EA7 /* AppDelegate.swift in Sources */,
