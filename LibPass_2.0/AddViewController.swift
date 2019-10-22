@@ -11,29 +11,42 @@ import SwiftyJSON
 
 class AddViewController: UIViewController {
     
-    var ISBN: Int = 9784479793007
+    //var bokArray: [[String]] = [[String]]()
+    
+    var numArray: [Int] = [Int]()
+    var ISBN: Int!
+    
+    var name: String!
+    var auth: String!
+    var price: Int = 0
+    
+    //var curentArray:[String] = [String]()
+    //var bookArray:[[String]] = [[String]]()
+    
     @IBOutlet var bookNameLabel: UILabel!   //本の名前を表示
     @IBOutlet var bookAuthLabel: UILabel!   //本の著者を表示
     @IBOutlet var bookPriceLabel: UILabel!  //本の値段を表示
+    
+    var userDefaults = UserDefaults.standard    //UDの定義
     
     //var todayBox: Date! //登録日
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("fuuuuuuuuuuuuuuuuuuuuuuuuuuck")
         // Do any additional setup after loading the view.
-        //getArticles()
+        getArticles()
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("chinko")
+        
     }
     
     
     func getArticles() {
+        guard let isbn = ISBN else { return }
         
-        Alamofire.request("ここだよー")
+        Alamofire.request("https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&isbn=\(isbn)&applicationId=1091598145852090380")
         .responseJSON { (response) in
             print(response.result.value as Any)
             guard let object = response.result.value else {
@@ -42,12 +55,28 @@ class AddViewController: UIViewController {
             
             
             let json = JSON(object)
-            json.forEach({ (_, json) in
-                //json["title"].string
-                
-                
-                print(json[""].int as Any)
-            })
+//            print(json["Items"][0]["Item"]["title"].stringValue)
+//            print(json["Items"][0]["Item"]["author"].stringValue)
+//            print(json["Items"][0]["Item"]["itemPrice"].intValue)
+            
+            
+            
+            self.bookNameLabel.text = json["Items"][0]["Item"]["title"].stringValue
+            self.bookAuthLabel.text = json["Items"][0]["Item"]["author"].stringValue
+            self.bookPriceLabel.text = String(json["Items"][0]["Item"]["itemPrice"].intValue)
+
+            
+//            self.name = json["Items"][0]["Item"]["title"].stringValue
+//            self.auth = json["Items"][0]["Item"]["author"].stringValue
+            self.price = json["Items"][0]["Item"]["itemPrice"].intValue
+//            print(self.name!)
+            
+//            json.forEach({ (_, json) in
+//                json["title"].string
+//
+//
+//                print(json)
+//            })
         }
         
         
@@ -58,6 +87,42 @@ class AddViewController: UIViewController {
     @IBAction func addButton() {
         //記帳する(firestoreにデータを送る)
         
+//        curentArray[0] = name
+//        curentArray[1] = auth
+//        curentArray[2] = String(price)
+        
+        
+        //このbookArrayをUDに保存して、セルに表示する
+        //bookArray = [curentArray]
+        
+        numArray.append(price)
+        
+        //var getData = userDefaults.array(forKey: "ratio")
+        
+        //userDefaults.set(bookArray, forKey: "ratio")
+        
+        userDefaults.set(numArray, forKey: "num")
+        
+        
+        //curentArray.removeAll()
+        
+        //var bokArray = userDefaults.object(forKey: "ratio")
+        
+        var numArray = userDefaults.integer(forKey: "num")
+        
+        
+//        cell.name.text = self.bookArray[indexPath.row][0]
+//        cell.auth.text = self.bookArray[indexPath.row][1]
+//        cell.price.text = self.bookArray[indexPath.row][2]
+//        cell.date.text = self.bookArray[indexPath.row][3]
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! ViewController
+        vc.nmArray = self.numArray
+        //vc.numArray = self.numArray
+        
     }
     
     
@@ -66,6 +131,6 @@ class AddViewController: UIViewController {
     }
     
     
-    
+    //struct
     
 }

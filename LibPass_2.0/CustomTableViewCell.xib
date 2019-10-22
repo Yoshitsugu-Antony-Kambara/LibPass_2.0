@@ -19,37 +19,50 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="日付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aS5-Mm-qde">
-                        <rect key="frame" x="16" y="11" width="35" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="書名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAT-06-h1j">
+                        <rect key="frame" x="25" y="10" width="146" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="書名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAT-06-h1j">
-                        <rect key="frame" x="66" y="11" width="146" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="値段" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f77-YF-Mei">
+                        <rect key="frame" x="260" y="11" width="45" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="7xC-jI-3x9"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="著者" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9z-0K-xIb">
-                        <rect key="frame" x="220" y="11" width="35" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="値段" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f77-YF-Mei">
-                        <rect key="frame" x="270" y="11" width="35" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="著者" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9z-0K-xIb">
+                        <rect key="frame" x="199" y="11" width="47" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="47" id="h8Y-xP-icP"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="f77-YF-Mei" firstAttribute="leading" secondItem="G9z-0K-xIb" secondAttribute="trailing" constant="14" id="09S-Xi-oLE"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="PAT-06-h1j" secondAttribute="bottom" constant="-32" id="565-lb-Wc5"/>
+                    <constraint firstItem="G9z-0K-xIb" firstAttribute="firstBaseline" secondItem="f77-YF-Mei" secondAttribute="firstBaseline" id="5HT-7e-b8f"/>
+                    <constraint firstItem="G9z-0K-xIb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-44" id="Cw9-Ir-6XA"/>
+                    <constraint firstItem="G9z-0K-xIb" firstAttribute="leading" secondItem="PAT-06-h1j" secondAttribute="trailing" constant="28" id="Gfs-LM-2do"/>
+                    <constraint firstItem="PAT-06-h1j" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-45" id="ILS-7n-yDW"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="f77-YF-Mei" secondAttribute="trailing" constant="-1" id="d3N-m6-UsH"/>
+                    <constraint firstItem="G9z-0K-xIb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="itn-Jl-gcE"/>
+                    <constraint firstItem="PAT-06-h1j" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="9" id="kBO-v3-fgb"/>
+                    <constraint firstItem="G9z-0K-xIb" firstAttribute="baseline" secondItem="f77-YF-Mei" secondAttribute="baseline" id="w3n-mV-aF7"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="auth" destination="G9z-0K-xIb" id="VKg-4w-l7X"/>
+                <outlet property="name" destination="PAT-06-h1j" id="0gz-nS-wso"/>
+                <outlet property="price" destination="f77-YF-Mei" id="B80-Th-qgj"/>
+            </connections>
             <point key="canvasLocation" x="50.724637681159422" y="34.821428571428569"/>
         </tableViewCell>
     </objects>

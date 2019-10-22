@@ -12,6 +12,10 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     // カメラやマイクの入出力を管理するオブジェクトを生成
     private let session = AVCaptureSession()
     
+    var check: Bool = true
+    
+    var ISBN: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -83,33 +87,52 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     }
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        
         for metadata in metadataObjects as! [AVMetadataMachineReadableCodeObject] {
             // バーコードの内容が空かどうかの確認
             if metadata.stringValue == nil {
-                continue
+                return
             }
             
             // 読み取ったデータの値
-            print(metadata.type)
-            print(metadata.stringValue!)
+            //print(metadata.type)
+            //print(metadata.stringValue!)
             
+            ISBN = Int(metadata.stringValue!)!
+            
+            //print(ISBN as Any)
             // 取得したデータの処理を行う
-            let alert: UIAlertController = UIAlertController(title: "取得できました", message: metadata.stringValue, preferredStyle: UIAlertController.Style.alert)
-            let cancel: UIAlertAction = UIAlertAction(title: "確認", style: UIAlertAction.Style.default, handler:{(action:UIAlertAction!) -> Void in
-                self.show(AddViewController(), sender: nil)
-            })
-            alert.addAction(cancel)
-            present(alert, animated: true, completion: nil)
+            if check && ISBN > 999999999999 {
+                check = false
+                performSegue(withIdentifier: "next", sender: self)
+            }
             
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//                // 0.5秒後に実行したい処理
-//                self.present(ScanViewController(), animated: true, completion: nil)
-//            }
+            let alert: UIAlertController = UIAlertController(title: "取得できました", message: metadata.stringValue, preferredStyle: UIAlertController.Style.alert)
+            
+            
+            let cancel: UIAlertAction = UIAlertAction(title: "確認", style: UIAlertAction.Style.default, handler:{(action:UIAlertAction!) -> Void in
+                
+                
+//                let storyboard = self.storyboard!
+//                self.present(storyboard.instantiateViewController(withIdentifier: "addVC"), animated: true, completion: nil)
+            })
+                
+                
+            alert.addAction(cancel)
+            //present(alert, animated: true, completion: nil)
+            
         }
+        
+        
     }
     
     // 閉じるが押されたら呼ばれます
     @objc func closeTaped(sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! AddViewController
+        vc.ISBN = self.ISBN
+    }       //画面が遷移する瞬間に呼ばれる
 }
