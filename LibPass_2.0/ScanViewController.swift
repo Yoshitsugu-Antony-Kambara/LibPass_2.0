@@ -20,6 +20,9 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         super.viewDidLoad()
         self.view.backgroundColor = .white
         
+        
+        // test 追加
+        
         // カメラやマイクのデバイスそのものを管理するオブジェクトを生成（ここではワイドアングルカメラ・ビデオ・背面カメラを指定）
         let discoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera],
                                                                 mediaType: .video,
