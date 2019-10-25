@@ -13,7 +13,6 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet var name: UILabel!
     @IBOutlet var auth: UILabel!
     @IBOutlet var price: UILabel!
-    @IBOutlet var date: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

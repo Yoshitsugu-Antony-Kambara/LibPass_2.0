@@ -20,14 +20,14 @@ class AddViewController: UIViewController {
     var auth: String!
     var price: Int = 0
     
-    //var curentArray:[String] = [String]()
+    var currentArray:[String] = [String]()
     //var bookArray:[[String]] = [[String]]()
     
     @IBOutlet var bookNameLabel: UILabel!   //本の名前を表示
     @IBOutlet var bookAuthLabel: UILabel!   //本の著者を表示
     @IBOutlet var bookPriceLabel: UILabel!  //本の値段を表示
     
-    var userDefaults = UserDefaults.standard    //UDの定義
+    //var userDefaults = UserDefaults.standard    //UDの定義
     
     //var todayBox: Date! //登録日
     
@@ -95,20 +95,26 @@ class AddViewController: UIViewController {
         //このbookArrayをUDに保存して、セルに表示する
         //bookArray = [curentArray]
         
-        numArray.append(price)
+        //numArray.append(price)
+        currentArray.append(bookPriceLabel.text!)
+        currentArray.append(bookNameLabel.text!)
+        currentArray.append(bookAuthLabel.text!)
+        
+        
+        print(currentArray)
         
         //var getData = userDefaults.array(forKey: "ratio")
         
         //userDefaults.set(bookArray, forKey: "ratio")
         
-        userDefaults.set(numArray, forKey: "num")
+        //userDefaults.set(numArray, forKey: "num")
         
         
         //curentArray.removeAll()
         
         //var bokArray = userDefaults.object(forKey: "ratio")
         
-        var numArray = userDefaults.integer(forKey: "num")
+//        var numArray = userDefaults.integer(forKey: "num")
         
         
 //        cell.name.text = self.bookArray[indexPath.row][0]
@@ -120,7 +126,7 @@ class AddViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! ViewController
-        vc.nmArray = self.numArray
+        vc.currentArray = self.currentArray
         //vc.numArray = self.numArray
         
     }
