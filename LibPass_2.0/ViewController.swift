@@ -12,13 +12,17 @@ class ViewController: UIViewController {
     var sum: Int = 0
     
     
+    var getData: [[String]] = [[String]]()
     var nmArray: [Int] = [Int]()
+    var currentArray: [String] = ["書名", "著者名", "金額"]
+    var stockArray: [[String]] = [[String]]()
     
     @IBOutlet var sumLabel: UILabel!
     @IBOutlet var table: UITableView!
     
-    var bokArray:[[String]] = [[String]]()
+    //var bokArray:[[String]] = [[String]]()
     
+    var userDefaults = UserDefaults.standard
     
     
     
@@ -36,10 +40,20 @@ class ViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        for i in 0..<nmArray.count {
-            sum = sum + nmArray[i]
+        
+        //nmArray.append(Int(currentArray[0])!)
+        for i in 0..<getData.count {
+            sum += Int(getData[i][0])!
         }
+        
         sumLabel.text = String(sum)
+        
+        stockArray.append(currentArray)
+        userDefaults.set(stockArray, forKey: "key")
+        getData = userDefaults.array(forKey: "key") as! [[String]]
+        
+        print(getData)
+        //table.reloadData()
     }
     
     
@@ -55,14 +69,17 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return nmArray.count
+        return getData.count
+        
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell") as! CustomTableViewCell
-        cell.price.text = String(self.nmArray[indexPath.row])
+        cell.price.text = self.getData[indexPath.row][0]
+        cell.name.text = self.getData[indexPath.row][1]
+        cell.auth.text = self.getData[indexPath.row][2]
         
         return cell
     }
